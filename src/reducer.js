@@ -10,20 +10,21 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.ADD_COUNTER:
       return {
-        ...initialState,
+        ...state,
         counter: ++count
       }
     case actionTypes.SUBTRACT_COUNTER:
       return {
-        ...initialState,
+        ...state,
         counter: --count
       }
     case actionTypes.RESET_COUNTER:
+      count = 0;
       return {
-        ...initialState,
-        counter: 0
+        ...state,
+        counter: count
       }
     default:
-      state
+      return state;
   }
 }
